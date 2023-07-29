@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+
+  web:
+    container_name: "BackEnd_Nolex"
+    build: . 
+    depends_on:
+      - db
+
+    volumes:
+     - ./src:/app
+
+    restart: unless-stopped
+
+
+  db:
+    container_name: "DB_Nolex"
+    image: postgres
+    restart: always
+    volumes:
+      - litoDb:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+
+  nginx:
+    container_name: "NGINX_Nolex"
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    volumes:
+      - ./src:/app
+      - ./src/venv:/usr/local/lib/python3.11
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+      - db
+  
+volumes:
+  litoDb:
+    external: true
+
+
+
