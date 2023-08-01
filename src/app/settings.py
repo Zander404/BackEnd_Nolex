@@ -152,13 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8000',
-    'http://BackEnd_Nolex:8000',
-    'http://NGINX_Nolex',
-    'http://nolex.xandyy.dev',
-]
-
+CSRF_TRUSTED_ORIGINS = env("SITE_ALLOWED").split(',')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # DRF
