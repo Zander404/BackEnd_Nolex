@@ -6,11 +6,15 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-db.sqlite3
 **/__pycache__/
+
+# DB
+db.sqlite3
+
 # BackFiles
 backups/*
 
 #Static
 static/
+
 
