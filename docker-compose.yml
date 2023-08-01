@@ -21,6 +21,7 @@ services:
     restart: always
     volumes:
       - litoDb:/var/lib/postgresql/data
+
     env_file:
       - .env
 
@@ -36,17 +37,37 @@ services:
     restart: unless-stopped
     ports:
       - 8000:8000
+
     volumes:
       - ./src:/app
       - ./src/venv:/usr/local/lib/python3.11
       - ./nginx:/etc/nginx/conf.d
+
+    env_file:
+      - .env
+
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
+
     depends_on:
       - web
       - db
+
+    networks:
+      - nginx
+      - default
+
+    
   
 volumes:
   litoDb:
     external: true
 
+
+networks:
+  nginx:
+    external: true
 
 
