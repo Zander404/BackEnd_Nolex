@@ -142,7 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = 'static/media'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
@@ -152,7 +152,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS = env("SITE_ALLOWED").split(',')
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000",
+                        "http://BackEnd_Nolex:8000",
+                        "http://NGINX_Nolex",
+                        "http://nolex.xandyy.dev",
+                        "http://api.xandyy.dev",
+                        ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # DRF
