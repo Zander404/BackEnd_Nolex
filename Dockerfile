@@ -10,6 +10,7 @@ RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev && \
     pip install --no-cache-dir -r requirements.txt
 
+
     
 COPY ./src .
 CMD gunicorn app.wsgi:application -b 0.0.0.0:8000
