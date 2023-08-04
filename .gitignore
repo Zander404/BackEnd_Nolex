@@ -17,5 +17,6 @@ backups/*
 media/*
 
 #Static
+static/
 
 
