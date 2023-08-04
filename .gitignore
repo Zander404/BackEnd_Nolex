@@ -7,14 +7,15 @@ ENV/
 env.bak/
 venv.bak/
 **/__pycache__/
+*/__pycache__/
 
 # DB
 db.sqlite3
 
 # BackFiles
 backups/*
+media/*
 
 #Static
-static/
 
 

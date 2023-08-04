@@ -14,14 +14,16 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class SkillSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Skill
-        fields = ["__all__"]
+        fields = "__all__"
 
 class ProjetSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Project
-        fields = ["__all__"]
+        fields = "__all__"
         
