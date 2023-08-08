@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: pedrofff/portifolio
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/nolex_port
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
