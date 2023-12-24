@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # APPS 
-
+    "projects.apps.ProjectsConfig"
 ]
 
 MIDDLEWARE = [
@@ -70,7 +70,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['src/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,8 +142,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -166,6 +165,7 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost:8000",
                         "http://nolex.xandyy.dev",
                         "http://api.xandyy.dev",
                         ]
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # DRF
@@ -173,3 +173,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+ADMINS = {
+    ("arthur","alexandrearthurpg@gmail.com"),
+    }
+
+
