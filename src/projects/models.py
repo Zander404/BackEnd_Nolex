@@ -13,4 +13,4 @@ class Project(models.Model):
     class Meta:
         def __str__(self) -> str:
             return self.title
-            
+
